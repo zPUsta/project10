@@ -132,6 +132,7 @@ bottom: 15px;
     justify-content: center;
 }
 .bus img{
+    width: 60%;
     animation-name: bus;
     animation-duration: 2s;
     animation-direction: alternate-reverse;
@@ -153,7 +154,7 @@ bottom: 15px;
 .animation img{
     position: absolute;
     width: 700px;
-    bottom: 0;
+    bottom: 100px;
 }
 
 .products{
@@ -162,14 +163,18 @@ bottom: 15px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: var(--product-gap);
     width: 100%;
     padding: 100px 50px;
     position: relative;
 }
+:root {
+    --product-gap: 30px;
+    --product-row-count: 2;
+  }
 
 .product{
-    width: calc((100% - 30px)/3 );
+    width: calc((100% - var(--product-gap)) / var(--product-row-count) );
     background-color: antiquewhite;
     overflow: hidden;
     position: relative;
@@ -178,14 +183,28 @@ bottom: 15px;
     -moz-box-shadow: -4px 1px 20px 2px rgba(154, 168, 179, 0.75);
     width: calc((100% - var(--content-image-gap))/2 );
     font-family: "Josefin Sans", sans-serif;
+    z-index: 1;
+
     
 }
+
+.product .prod-img{
+    height: 90%;
+    overflow: hidden;
+}
+.product .prod-img img:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+  }
 .price{
     display: flex;
     align-items: center;
  justify-content: space-around;
     padding: 10px 0px;
 
+}
+.text-price{
+    height: 10%;
 }
 
 
@@ -214,7 +233,7 @@ bottom: 15px;
     justify-content: space-between;
    
    font-size: 20px;
-   z-index: 1;
+   z-index: 2;
 }
 
 #left, #right{
